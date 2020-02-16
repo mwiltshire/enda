@@ -1,0 +1,52 @@
+{
+  "name": "enda",
+  "version": "0.0.0-semantically-released",
+  "description": "A simple utility for managing API endpoint constants.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=8"
+  },
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{ts,js}\"",
+    "lint": "eslint \"src/**/*.{ts,js}\"",
+    "test": "jest",
+    "test:watch": "npm test -- --watch",
+    "test:coverage": "npm test -- --collectCoverage",
+    "build": "tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
+    }
+  },
+  "keywords": [],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^25.1.1",
+    "@types/node": "^13.7.0",
+    "@typescript-eslint/eslint-plugin": "^2.19.0",
+    "@typescript-eslint/parser": "^2.19.0",
+    "codecov": "^3.6.5",
+    "eslint": "^6.8.0",
+    "husky": "^4.2.1",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
+    "semantic-release": "^17.0.3",
+    "ts-jest": "^25.2.0",
+    "typescript": "^3.7.5"
+  },
+  "bugs": {
+    "url": "https://github.com/mwiltshire/enda/issues"
+  },
+  "homepage": "https://github.com/mwiltshire/enda#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mwiltshire/enda.git"
+  }
+}
