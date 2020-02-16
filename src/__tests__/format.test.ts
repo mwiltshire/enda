@@ -51,6 +51,16 @@ describe('error handling', () => {
         /Tried to replace parameter '{todoId}' but could not find property 'todoId' in*/
       );
     });
+
+    it('throws error if pathParams parameter is undefined', () => {
+      const url = 'https://www.example.com/projects/{projectId}/todo/{todoId}';
+      const regex = /{([^}]+)}/g;
+      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+      // @ts-ignore
+      expect(() => format(url, undefined, regex, true)).toThrowError(
+        /Tried to replace parameter '{projectId}' but could not find property 'projectId' in*/
+      );
+    });
   });
 
   describe('without strict parameter matching', () => {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-ignore */
 import { Enda } from '../enda';
 import { Endpoint } from '../endpoint';
 
@@ -9,6 +10,21 @@ describe('make method', () => {
   it('returns instance of Endpoint', () => {
     const enda = new Enda();
     expect(enda.make('project', 'todo')).toBeInstanceOf(Endpoint);
+  });
+
+  it('throws error if incorrect argument types supplied', () => {
+    const enda = new Enda();
+    const msg = 'make expects to be passed a function or string arguments.';
+    // @ts-ignore
+    expect(() => enda.make(1, 2, 3)).toThrowError(msg);
+    // @ts-ignore
+    expect(() => enda.make(null)).toThrowError(msg);
+    // @ts-ignore
+    expect(() => enda.make(undefined)).toThrowError(msg);
+    // @ts-ignore
+    expect(() => enda.make({})).toThrowError(msg);
+    // @ts-ignore
+    expect(() => enda.make([])).toThrowError(msg);
   });
 
   describe('constructing Endpoint instance - defaults', () => {
