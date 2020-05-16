@@ -98,7 +98,7 @@ import { Enda } from 'enda';
 const enda = new Enda();
 
 const project: Endpoint = enda.make('projects', '{projectId}');
-project.url(); // /foo/bar/baz
+project.url(); // /projects/{projectId}
 
 // Leading / characters will be ignored...
 const tasks: Endpoint = enda.make('projects', '/{projectId}', '//tasks');
@@ -123,7 +123,7 @@ const enda = new Enda({
 const tasks: Endpoint = enda.make(({ join, parts }) =>
   join(parts.projects, parts.projectId, parts.tasks)
 );
-tasks.url(); // /foo/{projectId}/tasks
+tasks.url(); // /projects/{projectId}/tasks
 
 // You don't have to use the join helper function. As long as
 // your function returns a string, you're set. You will need
@@ -132,7 +132,7 @@ const task: Endpoint = enda.make(
   ({ parts: { projects, projectId, tasks } }) =>
     `${projects}/${projectId}/${tasks}/{taskId}`
 );
-task.url(); // /foo/{projectId}/tasks/{taskId}
+task.url(); // /projects/{projectId}/tasks/{taskId}
 ```
 
 ### `Endpoint` methods
