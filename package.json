@@ -35,11 +35,11 @@
     "codecov": "^3.6.5",
     "eslint": "^6.8.0",
     "husky": "^4.2.1",
-    "jest": "^25.1.0",
+    "jest": "^26.1.0",
     "prettier": "^1.19.1",
-    "semantic-release": "^17.0.3",
-    "ts-jest": "^25.2.0",
-    "typescript": "^3.7.5"
+    "semantic-release": "^17.1.1",
+    "ts-jest": "^26.1.1",
+    "typescript": "^3.9.6"
   },
   "bugs": {
     "url": "https://github.com/mwiltshire/enda/issues"
